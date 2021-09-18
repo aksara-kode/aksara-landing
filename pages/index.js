@@ -1,17 +1,19 @@
 import { useRef } from "react"
 import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
-import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
+import { ChevronRightIcon, ChevronLeftIcon, StarIcon } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/image";
 import { Box, Container, Flex, Heading, HStack, Link, List, ListItem, Spacer, Text, Grid, LinkBox, VStack, Center } from "@chakra-ui/layout";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { LogoIcon, RocketIcon, ShieldIcon, SettingIcon, QualityIcon, CodeIcon, ChatIcon, BranchIcon } from "../icons/generateIcon";
+import { LogoIcon, RocketIcon, ShieldIcon, SettingIcon, QualityIcon, CodeIcon, ChatIcon, BranchIcon, PreviousArrowIcon, NextArrowIcon } from "../icons/icons";
 
 import SwiperCore, {
   Autoplay,
   Navigation
 } from 'swiper';
+
+
 
 // install Swiper modules
 SwiperCore.use([Navigation, Autoplay]);
@@ -113,42 +115,97 @@ const CustomerReviewSection = () => {
     {
       avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
-      jobTitle: "PM MyCarrier at PT Telkom Indonesia",
+      jobTitle: "PT Telkom Indonesia",
       review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
     },
     {
       avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
-      jobTitle: "PM MyCarrier at PT Telkom Indonesia",
+      jobTitle: "PT Telkom Indonesia",
       review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
     },
     {
       avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
-      jobTitle: "PM MyCarrier at PT Telkom Indonesia",
+      jobTitle: "PT Telkom Indonesia",
+      review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
+      star: 3
+    },
+    {
+      avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
+      name: "Syahrul Rasyid",
+      jobTitle: "PT Telkom Indonesia",
+      review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
+      star: 3
+    },
+    {
+      avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
+      name: "Syahrul Rasyid",
+      jobTitle: "PT Telkom Indonesia",
+      review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
+      star: 3
+    },
+    {
+      avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
+      name: "Syahrul Rasyid",
+      jobTitle: "PT Telkom Indonesia",
       review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
     },
   ]
   return (
-    <Box as="section">
-      <Heading textAlign="center" size="lg">{titleText}</Heading>
-      <Grid templateColumns="repeat(3, 1fr)">
-        {reviewDatas.map((v, i) => (
-          <Box key={i}>
-            <Flex>
-              <Avatar src={v.avatarImage} name={v.name}/>
-              <Box>
-                <Heading as="h4" size="md">{v.name}</Heading>
-                <Text>{v.jobTitle}</Text>
-              </Box>
-            </Flex>
-            <Text>{v.review}</Text>
-          </Box>
-        ))}
-      </Grid>
+    <Box as="section" w="100%">
+      <Heading mb="64px" textAlign="center" size="lg">{titleText}</Heading>
+        <Flex>
+          <Flex direction="column" justifyContent="center" mr="24px">
+            <Box cursor="pointer" mb="4" className="swipe-review-prev">
+              <PreviousArrowIcon w="45px" h="45px" />
+            </Box>
+            <Box cursor="pointer" className="swipe-review-next">
+              <NextArrowIcon w="45px" h="45px" />
+            </Box>
+          </Flex>
+          <Swiper
+            navigation={{
+              prevEl: '.swipe-review-prev',
+              nextEl: '.swipe-review-next',
+            }}
+            slidesPerView={"auto"}
+            spaceBetween={24}
+            loop={true} 
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false
+            }}
+            style={{
+              height: "100%"
+            }}
+          >
+            {reviewDatas.map((v, i) => (
+              <SwiperSlide style={{
+                maxWidth: "300px"
+              }} key={i}>
+                <Box key={i} bg="white" borderRadius="10px" p="24px">
+                  <Flex mb="16px">
+                    <Avatar mr="12px" src={v.avatarImage} name={v.name}/>
+                    <Box>
+                      <Heading mb="2px" as="h4" size="sm">{v.name}</Heading>
+                      <Text fontSize="xs" textColor="gray.800">{v.jobTitle}</Text>
+                    </Box>
+                  </Flex>
+                  <Text mb="24px" textColor="gray.700">{v.review}</Text>
+                  <Center w="100%">
+                    {[...Array(v.star)].map((_, i) => (
+                      <StarIcon textColor="#FFC105" m="2px" key={i}/>
+                    ))}
+                  </Center>
+                </Box>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Flex>
     </Box>
   )
 }
@@ -462,7 +519,7 @@ export default function Home() {
             <OurClient/>
             <FLowSection/>  
             {/* <BenefitSection/> */}
-            {/* <CustomerReviewSection/> */}
+            <CustomerReviewSection/>
             <ContactUsSection/>
           </VStack>
         </Container>
