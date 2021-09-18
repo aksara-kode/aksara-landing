@@ -154,15 +154,15 @@ const CustomerReviewSection = () => {
 }
 
 const ContactUsSection = () => {
-  const titleText = "Ide kamu ceritakan, kami yang wujudkan."
+  const titleText = "Ayo ceritakan Idemu, kami yang wujudkan impian kamu"
   const buttonText = "Hubungi Kami"
   return (
     <Box as="section" width="100%">
-      <Flex>
-        <Heading size="xl">{titleText}</Heading>
+      <Box d={{base: "block", md: "flex"}} bgGradient="linear(#4A67DB, #334DCF)" p="20px" textColor="white" alignItems="center" borderRadius="10px">
+        <Heading textAlign={{base: "center", md: "left"}} mb={{base: "12px", md: "0px"}} size="md">{titleText}</Heading>
         <Spacer/> 
-        <Button>{buttonText}</Button>
-      </Flex>
+        <Button w={{base: "100%", md: "150px"}} mr="24px" bg="#506eff" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{buttonText}</Button> 
+      </Box>
     </Box>
   )
 }
@@ -327,11 +327,13 @@ const FooterMenu = () => {
   return (
     <Grid templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)", "repeat(4, 1fr)"]} columnGap={100} rowGap={10} textColor="white">
       <Box>
-        <Image maxW="200px" src={infoData.imageData.image} alt={infoData.imageData.alt} />
-        <Text>{infoData.description}</Text>
+        <Link mb="12px">
+          <LogoIcon w="50px" h="50px"/>
+        </Link>
+        <Text textColor="#c7d2ff">{infoData.description}</Text>
       </Box>
       <Box>
-        <Text>{supportText}</Text>
+        <Heading as="h4" mb="8px" size="sm">{supportText}</Heading>
         <List>
           {supportMenusDatas.map((v, i) => (
             <ListItem key={i}>
@@ -341,7 +343,7 @@ const FooterMenu = () => {
         </List>
       </Box>
       <Box>
-        <Text>{linkText}</Text>
+        <Heading as="h4" mb="8px" size="sm">{linkText}</Heading>
         <List>
           {linktMenusDatas.map((v, i) => (
             <ListItem key={i}>
@@ -351,7 +353,7 @@ const FooterMenu = () => {
         </List>
       </Box>
       <Box>
-        <Text>{contactUsText}</Text>
+        <Heading as="h4" mb="8px" size="sm">{contactUsText}</Heading>
         <List>
           {contactMenusDatas.map((v, i) => (
             <ListItem key={i}>
@@ -461,14 +463,14 @@ export default function Home() {
             <FLowSection/>  
             {/* <BenefitSection/> */}
             {/* <CustomerReviewSection/> */}
-            {/* <ContactUsSection/> */}
+            <ContactUsSection/>
           </VStack>
         </Container>
       </Box>
       {/* footer */}
-      <Box bg="blue.700" py="30px">
+      <Box py="30px" bg="#334DCF">
         <Container maxW="container.xl">
-          {/* <FooterMenu/>   */}
+          <FooterMenu/>  
         </Container>
       </Box>  
     </>
