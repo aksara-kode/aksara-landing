@@ -45,7 +45,7 @@ const FLowSection = () => {
   ]
 
   return (
-    <Box as="section" w="100%">
+    <Box as="section" w="100%" pb="24px">
       <Box>
         <Heading mb="64px" textAlign="center" size="lg">{titleText}</Heading>
         <Box d={{base: "block", md:"flex"}} justifyContent="space-between" >
@@ -513,17 +513,36 @@ export default function Home() {
       </Box>
 
       {/* body */}
-      <Box bg="#F9F9FA">
-        <Container maxW="container.xl" py="50px">
-          <VStack spacing="50px">
+      <Box>
+        <Box w="100%" py="48px">
+          <Container maxW="container.xl">
             <OurClient/>
+          </Container>
+        </Box>
+
+        <Box w="100%" py="48px">
+          <Container maxW="container.xl">
             <FLowSection/>  
-            {/* <BenefitSection/> */}
+          </Container>
+        </Box>
+
+        <Box w="100%" bg="#F9F9FA" py="48px">
+          <Container maxW="container.xl">
             <CustomerReviewSection/>
+          </Container>
+        </Box>
+
+        {/* <Container maxW="container.xl" py="50px">
+          <BenefitSection/>
+        </Container> */}
+
+        <Box w="100%" bg="#F9F9FA" py="48px">
+          <Container maxW="container.xl">
             <ContactUsSection/>
-          </VStack>
-        </Container>
+          </Container>
+        </Box>
       </Box>
+
       {/* footer */}
       <Box py="30px" bg="#334DCF">
         <Container maxW="container.xl">
