@@ -6,7 +6,7 @@ import { Image } from "@chakra-ui/image";
 import { Box, Container, Flex, Heading, HStack, Link, List, ListItem, Spacer, Text, Grid, LinkBox, VStack, Center } from "@chakra-ui/layout";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { LogoIcon } from "../icons/LogoIcon";
+import { LogoIcon, RocketIcon, ShieldIcon, SettingIcon, QualityIcon, CodeIcon, ChatIcon, BranchIcon } from "../icons/generateIcon";
 
 import SwiperCore, {
   Autoplay,
@@ -20,34 +20,43 @@ const FLowSection = () => {
   const titleText = "Ide kamu ceritakan, kami yang wujudkan."
   const flowDatas = [
     {
-      icon: null,
+      Icon: RocketIcon,
+      iconBgColor: "rgba(157,68,181,.3)",
+      color: "",
       title: "Ceritakan Ide Kreatif",
       description: "Ide apa yang ingin kamu wujudkan? Kami akan dengarkan"
     },
     {
-      icon: null,
+      Icon: ShieldIcon,
+      iconBgColor: "rgba(29,203,161,.3)",
+      color: "#1ECAA1",
       title: "Kolaborasi Ide dan Teknologi",
       description: "Mempertemukan kebutuhan idemu dengan teknologi kami"
     },
     {
-      icon: null,
+      Icon: BranchIcon,
+      iconBgColor: "rgba(255,51,31,.3)",
+      color: "#FF341E",
       title: "Pengembangan Aplikasi dan Website",
       description: "Proses pembuatan aplikasi dan website oleh Tim Ahli Archv"
     },
   ]
 
   return (
-    <Box as="section">
+    <Box as="section" w="100%">
       <Box>
-        <Heading textAlign="center" size="lg">{titleText}</Heading>
-        <Flex>
+        <Heading mb="64px" textAlign="center" size="lg">{titleText}</Heading>
+        <Box d={{base: "block", md:"flex"}} justifyContent="space-between" >
           {flowDatas.map((v, i) => (
-            <Box key={i}>
-              <Heading as="h3" size="md">{v.title}</Heading>
-              <Text>{v.description}</Text>
+            <Box key={i} maxW={{base: "100%", md: "300px"}} mb={{base: "32px", md: "0px"}} d="flex" flexDirection="column" alignItems="center">
+              <Center w="75px" h="75px" bg={v.iconBgColor} borderRadius="10px" mb="20px">
+                <v.Icon textColor={v.color} h="45px" w="45px"/>
+              </Center>
+              <Heading mb="8px" textAlign="center" as="h3" size="md">{v.title}</Heading>
+              <Text textAlign="center">{v.description}</Text>
             </Box>
           ))}
-        </Flex>
+        </Box>
       </Box>
     </Box>
   )
@@ -451,15 +460,15 @@ export default function Home() {
             <OurClient/>
             <FLowSection/>  
             {/* <BenefitSection/> */}
-            <CustomerReviewSection/>
-            <ContactUsSection/>
+            {/* <CustomerReviewSection/> */}
+            {/* <ContactUsSection/> */}
           </VStack>
         </Container>
       </Box>
       {/* footer */}
       <Box bg="blue.700" py="30px">
         <Container maxW="container.xl">
-          <FooterMenu/>  
+          {/* <FooterMenu/>   */}
         </Container>
       </Box>  
     </>
