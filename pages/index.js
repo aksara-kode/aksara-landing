@@ -96,6 +96,10 @@ const BenefitSection = () => {
       description: "Bebas biaya tambahan untuk konsultasi produk"
     },
   ]
+  const imageData = {
+    image: "/what-you-will-get.d3c6061f.png",
+    alt: "benefit"
+  }
   return (
     <Box as="section" w="100%">
       <Flex>
@@ -114,7 +118,7 @@ const BenefitSection = () => {
           </Grid>
         </Box>
         <Spacer d={{base: "none", md: "block"}}/>
-        <Image d={{base: "none", md: "block"}} w="507px" h="713px" src="https://archv.id/static/media/what-you-will-get.d3c6061f.png" alt="benefit" />
+        <Image d={{base: "none", md: "block"}} w="507px" h="713px" src={imageData.image} alt={imageData.alt} />
       </Flex>
     </Box>
   )
