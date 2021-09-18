@@ -68,42 +68,53 @@ const BenefitSection = () => {
   const titleText = "Dukungan kami untukmu"
   const benetifDatas = [
     {
-      icon: null,
+      Icon: CodeIcon,
+      iconBgColor: "rgba(29,203,161,.3)",
+      color: "#1ECAA1",
       title: "Sesuai Kebutuhan",
       description: "Kustomisasi fitur untuk memenuhi kebutuhan khusus"
     },
     {
-      icon: null,
+      Icon: SettingIcon,
+      iconBgColor: "rgba(255,192,97,.3)",
+      color: "#FFC061",
       title: "Pemeliharaan Lebih Mudah",
       description: "Dengan metode Microservice"
     },
     {
-      icon: null,
+      Icon: QualityIcon,
+      iconBgColor: "rgba(97,145,219,.3)",
+      color: "",
       title: "Pengujian Standar Internasional",
       description: "Memastikan aplikasi dan website berfungsi dengan baik"
     },
     {
-      icon: null,
+      Icon: ChatIcon,
+      iconBgColor: "rgba(255,51,31,.3)",
+      color: "",
       title: "Gratis Konsultasi",
       description: "Bebas biaya tambahan untuk konsultasi produk"
     },
   ]
   return (
-    <Box as="section">
+    <Box as="section" w="100%">
       <Flex>
         <Box>
-          <Heading size="lg">{titleText}</Heading>  
-          <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+          <Heading mb="64px" size="lg">{titleText}</Heading>  
+          <Grid w="100%" templateColumns={{base: "repeat(1, 1fr)", xl: "repeat(2, 1fr)"}} gap={6} pr={{base: "0px", md: "24px"}}>
             {benetifDatas.map((v, i) => (
-              <Box key={i}>
-                <Heading as="h3" size="md">{v.title}</Heading>
+              <Box w="100%" key={i} bg="white" p="24px" borderRadius="10px" boxShadow="md">
+                <Center w="45px" h="45px" bg={v.iconBgColor} borderRadius="10px" mb="20px">
+                  <v.Icon textColor={v.color} h="35px" w="35px"/>
+                </Center>
+                <Heading mb="8px" as="h3" size="md">{v.title}</Heading>
                 <Text>{v.description}</Text>
               </Box>
             ))}
           </Grid>
         </Box>
-        <Spacer/>
-        <Image src="https://archv.id/static/media/what-you-will-get.d3c6061f.png" alt="benetif" />
+        <Spacer d={{base: "none", md: "block"}}/>
+        <Image d={{base: "none", md: "block"}} w="507px" h="713px" src="https://archv.id/static/media/what-you-will-get.d3c6061f.png" alt="benefit" />
       </Flex>
     </Box>
   )
@@ -180,14 +191,15 @@ const CustomerReviewSection = () => {
               disableOnInteraction: false
             }}
             style={{
-              height: "100%"
+              height: "100%",
+              padding: "5px"
             }}
           >
             {reviewDatas.map((v, i) => (
               <SwiperSlide style={{
-                maxWidth: "300px"
+                maxWidth: "300px",
               }} key={i}>
-                <Box key={i} bg="white" borderRadius="10px" p="24px">
+                <Box key={i} bg="white" borderRadius="10px" p="24px" boxShadow="md">
                   <Flex mb="16px">
                     <Avatar mr="12px" src={v.avatarImage} name={v.name}/>
                     <Box>
@@ -528,15 +540,17 @@ export default function Home() {
 
         <Box w="100%" bg="#F9F9FA" py="48px">
           <Container maxW="container.xl">
+            <BenefitSection/>
+          </Container>
+        </Box>
+
+        <Box w="100%" py="48px">
+          <Container maxW="container.xl">
             <CustomerReviewSection/>
           </Container>
         </Box>
 
-        {/* <Container maxW="container.xl" py="50px">
-          <BenefitSection/>
-        </Container> */}
-
-        <Box w="100%" bg="#F9F9FA" py="48px">
+        <Box w="100%" py="48px">
           <Container maxW="container.xl">
             <ContactUsSection/>
           </Container>
