@@ -18,7 +18,7 @@ import SwiperCore, {
 // install Swiper modules
 SwiperCore.use([Navigation, Autoplay]);
 
-const FLowSection = () => {
+const FlowSection = () => {
   const titleText = "Ide kamu ceritakan, kami yang wujudkan."
   const flowDatas = [
     {
@@ -534,7 +534,7 @@ export default function Home() {
 
         <Box w="100%" py="48px">
           <Container maxW="container.xl">
-            <FLowSection/>  
+            <FlowSection/>  
           </Container>
         </Box>
 
