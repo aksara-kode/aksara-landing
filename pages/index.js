@@ -1,7 +1,20 @@
+import { useRef } from "react"
 import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
+import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/image";
-import { Box, Container, Flex, Heading, HStack, Link, List, ListItem, Spacer, Text, Grid, LinkBox, VStack } from "@chakra-ui/layout";
+import { Box, Container, Flex, Heading, HStack, Link, List, ListItem, Spacer, Text, Grid, LinkBox, VStack, Center } from "@chakra-ui/layout";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { LogoIcon } from "../icons/LogoIcon";
+
+import SwiperCore, {
+  Autoplay,
+  Navigation
+} from 'swiper';
+
+// install Swiper modules
+SwiperCore.use([Navigation, Autoplay]);
 
 const FLowSection = () => {
   const titleText = "Ide kamu ceritakan, kami yang wujudkan."
@@ -153,25 +166,27 @@ const Banner = () => {
   const seeMoreText = "Lihat kreasi kami"
 
   const ImageData = {
-    image: "https://archv.id/static/media/banner.94034895.png",
+    image: "/banner.94034895.png",
     alt: "aksara kode teknologi"
   }
   return (
-    <Box alignItems="center" d={["block", "block", "flex", "flex"]}>
-      <Box w="600px" textColor="white">
-        <Heading>{titleText}</Heading>
-        <Text>{descriptionText}</Text>
+    <Box alignItems="center" d={["block", "block", "flex", "flex"]} pt="48px" pb="96px">
+      <Box maxW="600px" textColor="white" mb="24px">
+        <Heading mb="12px">{titleText}</Heading>
+        <Text mb="24px" textColor="#c7d2ff">{descriptionText}</Text>
 
         <Flex alignItems="center">
-          <Button bg="blue">{ctaStartText}</Button>
-          <Text>{seeMoreText}</Text>
+          <Button w="150px" mr="24px" bg="#506eff" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{ctaStartText}</Button>
+
+          <Flex alignItems="center">
+            <Link mr="4px" fontSize="sm" fontWeight="bold"  textColor="white">{seeMoreText}</Link>
+            <ChevronRightIcon textColor="white" />
+          </Flex>
         </Flex>
 
       </Box>
       <Spacer/>
-      <Box>
-      <Image src={ImageData.image} alt={ImageData.alt}/> 
-      </Box>
+      <Image borderRadius="4px" src={ImageData.image} alt={ImageData.alt}/> 
     </Box>
   )
 }
@@ -207,15 +222,23 @@ const Menu = () => {
   return (
     <Flex alignItems="center">
       {/* logo */}
-      <Image maxW="200px" src="https://archv.id/static/media/logoHeader.e98c78fb.png" alt="aksara logo" />
+      <Link>
+        <LogoIcon w="100px" h="100px" />
+      </Link>
 
       <Spacer/>
 
       <List display={{base: "none", md:"block"}} py="20px" textColor="white">
-        <HStack>
+        <HStack spacing={4}>
           {menuDatas.map((v, i) => (
             <ListItem key={i}>
-              <Link>{v.title}</Link>
+              <Link fontWeight="medium" _hover={{
+                textDecoration: "none",
+                pb: "6px",
+                borderBottom: "2px",
+                borderColor: "white",
+                fontWeight: "bold"
+              }} >{v.title}</Link>
             </ListItem>
           ))}
         </HStack>
@@ -223,12 +246,18 @@ const Menu = () => {
       
       <Spacer/>
 
-      <Button display={{base: "none", md:"block"}} bg="blue">{ctaContactUsText}</Button>
+      {/* <Button display={{base: "none", md:"block"}} bg="blue">{ctaContactUsText}</Button> */}
+
+      <Flex alignItems="center">
+        <Box h="1px" bg="#c7d2ff" w="100px" mr="12px" />
+        <Link mr="4px" fontSize="sm" fontStyle="italic" fontWeight="bold"  textColor="white">{ctaContactUsText}</Link>
+        <ChevronRightIcon textColor="white" />
+      </Flex>
 
       {/* TODO */}
-      <Box visibility={{sm: "visible", md:"hidden"}}>
+      {/* <Box visibility={{sm: "visible", md:"hidden"}}>
         <Button>Menu</Button>
-      </Box>
+      </Box> */}
     </Flex>
   )
 }
@@ -328,11 +357,87 @@ const FooterMenu = () => {
   )
 }
 
+const OurClient = () => {
+  const swipeDatas  = [
+    {
+      image: "/logo-telkom.bbdcc5c7.png",
+      alt: "Telkom Indonesia", 
+      linkTo: "",
+      resize: "50%" 
+    },
+    {
+      image: "/logo-bagidata.0fb72baa.png",
+      alt: "Bagidata",
+      linkTo: "",
+      resize: "60%" 
+    },
+    {
+      image: "/logo-mimin.3ae8cd81.png",
+      alt: "Mimin Chat",
+      linkTo: "",
+      resize: "30%" 
+    },
+    {
+      image: "/logo-stkip.a939117d.png",
+      alt: "STKIP Muhammadiyah Bogor",
+      linkTo: "",
+      resize: "100%" 
+    },
+  ]
+
+  return (
+    <Box as="section" w="100%" mt="-130px">
+      <Flex alignItems="center" mb="8px">
+        <Box h="2px" bg="#c7d2ff" w="30px" mr="12px" />
+        <Text mr="4px" fontSize="sm" fontWeight="bold"  textColor="#c7d2ff">OUR CLIENTS</Text>
+      </Flex>
+      <Flex bg="white" h="100px" w="100%" boxShadow="lg" borderRadius="8px" alignItems="center">
+        <Box p="20px" cursor="pointer" className="swipe-our-client-prev">
+          <ChevronLeftIcon h={10} w={10} />
+        </Box>
+
+        <Swiper
+          navigation={{
+            prevEl: '.swipe-our-client-prev',
+            nextEl: '.swipe-our-client-next',
+          }}
+          slidesPerView={"auto"}
+          spaceBetween={10}
+          loop={true} 
+          autoplay={{
+            delay: 1500,
+            disableOnInteraction: false
+          }}
+          style={{
+            height: "100%"
+          }}
+        >
+          {swipeDatas.map((v, i) => (
+          <SwiperSlide style={{
+            maxWidth: "300px",
+            height: "100%",
+          }} key={i}>
+            <Center h="100%" w="100%">
+              <Image w={v.resize} src={v.image} alt={v.alt}/>
+            </Center>
+          </SwiperSlide>
+          ))}
+        </Swiper>
+        
+        <Box p="20px" cursor="pointer" className="swipe-our-client-next">
+          <ChevronRightIcon h={10} w={10} />
+        </Box>
+      </Flex>
+      
+    </Box>
+  )
+}
+
 export default function Home() {
   return (
     <>
       {/* head */}
-      <Box bg="blue.700">
+      <Box bgGradient="linear(#4A67DB, #334DCF)">
         <Container maxW="container.xl" >
           <Menu/> 
           <Banner/> 
@@ -340,15 +445,17 @@ export default function Home() {
       </Box>
 
       {/* body */}
-      <Container maxW="container.xl" py="50px">
-        <VStack spacing="50px">
-          <FLowSection/>  
-          <BenefitSection/>
-          <CustomerReviewSection/>
-          <ContactUsSection/>
-        </VStack>
-      </Container>
-
+      <Box bg="#F9F9FA">
+        <Container maxW="container.xl" py="50px">
+          <VStack spacing="50px">
+            <OurClient/>
+            <FLowSection/>  
+            {/* <BenefitSection/> */}
+            <CustomerReviewSection/>
+            <ContactUsSection/>
+          </VStack>
+        </Container>
+      </Box>
       {/* footer */}
       <Box bg="blue.700" py="30px">
         <Container maxW="container.xl">
