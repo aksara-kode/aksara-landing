@@ -1,7 +1,7 @@
 import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
 import { ChevronRightIcon, ChevronLeftIcon, StarIcon } from "@chakra-ui/icons";
-import { Box, Container, Flex, Heading, HStack, Link, List, ListItem, Spacer, Text, Grid, LinkBox, VStack, Center } from "@chakra-ui/layout";
+import { Box, Container, Flex, Heading, HStack, Link, List, ListItem, Spacer, Text, Grid, Center, Stack, SimpleGrid} from "@chakra-ui/layout";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { LogoIcon, RocketIcon, ShieldIcon, SettingIcon, QualityIcon, CodeIcon, ChatIcon, BranchIcon, PreviousArrowIcon, NextArrowIcon } from "../icons/icons";
@@ -15,6 +15,26 @@ import logoMiminImage from "../public/logo-mimin.3ae8cd81.png"
 import logoSTKIPImage from "../public/logo-stkip.a939117d.png"
 import logoTelkomImage from "../public/logo-telkom.bbdcc5c7.png"
 import wywgImage from "../public/what-you-will-get.d3c6061f.png"
+
+import stackNodeImage from "../public/tech-stacks/nodejs.png"
+import stackCloudflareImage from "../public/tech-stacks/cloudflare.png"
+import stackMYSQLImage from "../public/tech-stacks/mysql.png"
+import stackReactImage from "../public/tech-stacks/react.png"
+import stackPythonImage from "../public/tech-stacks/python.png"
+import stackGrafanaImage from "../public/tech-stacks/grafana.jpeg"
+import stackAndroidSDImage from "../public/tech-stacks/android-sdk.png"
+import stackDockerImage from "../public/tech-stacks/docker.png"
+import stackElasticsearchImage from "../public/tech-stacks/elasticsearch.png"
+import stackGolangImage from "../public/tech-stacks/golang.png"
+import stackJenkinsImage from "../public/tech-stacks/jenkins.png"
+import stackReactNativeImage from "../public/tech-stacks/react-native.jpeg"
+import stackRedisImage from "../public/tech-stacks/redis.png"
+import stackWordpressImage from "../public/tech-stacks/wordpress.png"
+import stackMongodbImage from "../public/tech-stacks/mongodb.png"
+import stackNginxImage from "../public/tech-stacks/nginx.png"
+import stackPHPImage from "../public/tech-stacks/php.jpeg"
+import stackTypescriptImage from "../public/tech-stacks/typescript.jpeg"
+import stackDokkuImage from "../public/tech-stacks/dokku.jpeg"
 
 import SwiperCore, {
   Autoplay,
@@ -550,6 +570,103 @@ const OurClient = () => {
   )
 }
 
+const TechStack = () => {
+  const titleText = "Aksara Tech Stacks"
+  const stackDatas = [
+    {
+      image: stackGolangImage,
+      name: "Golang",
+    },
+    {
+      image: stackPythonImage,
+      name: "Python",
+    },
+    {
+      image: stackPHPImage,
+      name: "PHP",
+    },
+    {
+      image: stackNodeImage,
+      name: "Node JS",
+    },
+    {
+      image: stackTypescriptImage,
+      name: "Typescript",
+    },
+    {
+      image: stackReactImage,
+      name: "React",
+    },
+    {
+      image: stackReactNativeImage,
+      name: "React Native",
+    },
+    {
+      image: stackAndroidSDImage,
+      name: "Android SDK",
+    },
+    {
+      image: stackDockerImage,
+      name: "Docker",
+    },
+    {
+      image: stackDokkuImage,
+      name: "Dokku",
+    },
+    {
+      image: stackMYSQLImage,
+      name: "MYSQL",
+    }, 
+    {
+      image: stackMongodbImage,
+      name: "Mongo DB",
+    }, 
+    {
+      image: stackRedisImage,
+      name: "Redis",
+    }, 
+    {
+      image: stackElasticsearchImage,
+      name: "Elastic Search",
+    }, 
+    {
+      image: stackGrafanaImage,
+      name: "Grafana",
+    }, 
+    {
+      image: stackJenkinsImage,
+      name: "Jenkins",
+    }, 
+    {
+      image: stackNginxImage,
+      name: "NGINX",
+    }, 
+    {
+      image: stackCloudflareImage,
+      name: "Cloudflare",
+    }, 
+    {
+      image: stackWordpressImage,
+      name: "Wordpress",
+    }, 
+  ]
+  return (
+    <Box as="section" w="100%">
+      <Heading mb="64px" textAlign="center" size="lg">{titleText}</Heading>
+      <SimpleGrid minChildWidth="90px" spacing="12px">
+        {stackDatas.map((v,i) => (
+          <Box justifySelf="center" borderRadius="5px" bg="white" w="90px" h="90px" key={i} d="flex" flexDirection="column" justifyContent="center" alignItems="center">
+            <Box mb="2px">
+              <CNextImage src={v.image} alt={v.name} width={50} height={50} placehoder="blur"/>
+            </Box>
+            <Text fontSize="xs" textColor="gray.700">{v.name}</Text>
+          </Box>
+        ))}
+      </SimpleGrid>
+    </Box> 
+  )
+}
+
 export default function Home() {
   return (
     <>
@@ -590,6 +707,12 @@ export default function Home() {
         <Box w="100%" py="48px">
           <Container maxW="container.xl">
             <ContactUsSection/>
+          </Container>
+        </Box>
+
+        <Box w="100%" py="48px" bg="#F9F9FA">
+          <Container maxW="container.xl">
+            <TechStack/>
           </Container>
         </Box>
       </Box>
