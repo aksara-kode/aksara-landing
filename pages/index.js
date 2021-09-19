@@ -9,6 +9,8 @@ import NextImage from "next/image"
 import { chakra } from "@chakra-ui/react"
 import Typewriter from 'typewriter-effect';
 
+import avatarSyahrulImage from "../public/syahrul.3b0eb5b0.png"
+
 import bannerImage from "../public/banner.94034895.png"
 import logoBagiDataImage from "../public/logo-bagidata.0fb72baa.png"
 import logoMiminImage from "../public/logo-mimin.3ae8cd81.png"
@@ -162,42 +164,7 @@ const CustomerReviewSection = () => {
   const titleText = "Pengalaman Bersama Kami"
   const reviewDatas = [
     {
-      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
-      name: "Syahrul Rasyid",
-      jobTitle: "PT Telkom Indonesia",
-      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
-      star: 3
-    },
-    {
-      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
-      name: "Syahrul Rasyid",
-      jobTitle: "PT Telkom Indonesia",
-      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
-      star: 3
-    },
-    {
-      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
-      name: "Syahrul Rasyid",
-      jobTitle: "PT Telkom Indonesia",
-      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
-      star: 3
-    },
-    {
-      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
-      name: "Syahrul Rasyid",
-      jobTitle: "PT Telkom Indonesia",
-      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
-      star: 3
-    },
-    {
-      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
-      name: "Syahrul Rasyid",
-      jobTitle: "PT Telkom Indonesia",
-      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
-      star: 3
-    },
-    {
-      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
+      avatarImage: "/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
       jobTitle: "PT Telkom Indonesia",
       review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
@@ -223,7 +190,7 @@ const CustomerReviewSection = () => {
             }}
             slidesPerView={"auto"}
             spaceBetween={24}
-            loop={true} 
+            loop={false} 
             autoplay={{
               delay: 4000,
               disableOnInteraction: false
