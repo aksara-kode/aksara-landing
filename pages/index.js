@@ -1,12 +1,19 @@
-import { useRef } from "react"
 import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
 import { ChevronRightIcon, ChevronLeftIcon, StarIcon } from "@chakra-ui/icons";
-import { Image } from "@chakra-ui/image";
 import { Box, Container, Flex, Heading, HStack, Link, List, ListItem, Spacer, Text, Grid, LinkBox, VStack, Center } from "@chakra-ui/layout";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { LogoIcon, RocketIcon, ShieldIcon, SettingIcon, QualityIcon, CodeIcon, ChatIcon, BranchIcon, PreviousArrowIcon, NextArrowIcon } from "../icons/icons";
+import NextImage from "next/image"
+import { chakra } from "@chakra-ui/react"
+
+import bannerImage from "../public/banner.94034895.png"
+import logoBagiDataImage from "../public/logo-bagidata.0fb72baa.png"
+import logoMiminImage from "../public/logo-mimin.3ae8cd81.png"
+import logoSTKIPImage from "../public/logo-stkip.a939117d.png"
+import logoTelkomImage from "../public/logo-telkom.bbdcc5c7.png"
+import wywgImage from "../public/what-you-will-get.d3c6061f.png"
 
 import SwiperCore, {
   Autoplay,
@@ -14,6 +21,10 @@ import SwiperCore, {
 } from 'swiper';
 
 
+const CNextImage = chakra(NextImage, {
+  baseStyle: { maxH: 120, maxW: 120 },
+  shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt', 'placeholder'].includes(prop),
+})
 
 // install Swiper modules
 SwiperCore.use([Navigation, Autoplay]);
@@ -97,7 +108,7 @@ const BenefitSection = () => {
     },
   ]
   const imageData = {
-    image: "/what-you-will-get.d3c6061f.png",
+    image: wywgImage,
     alt: "benefit"
   }
   return (
@@ -118,7 +129,7 @@ const BenefitSection = () => {
           </Grid>
         </Box>
         <Spacer d={{base: "none", md: "block"}}/>
-        <Image d={{base: "none", md: "block"}} w="507px" h="713px" src={imageData.image} alt={imageData.alt} />
+        <CNextImage d={{base: "none", md: "block"}} placehoder="blur" width={507} height={713} src={imageData.image} alt={imageData.alt} />
       </Flex>
     </Box>
   )
@@ -248,7 +259,7 @@ const Banner = () => {
   const seeMoreText = "Lihat kreasi kami"
 
   const ImageData = {
-    image: "/banner.94034895.png",
+    image: bannerImage,
     alt: "aksara kode teknologi"
   }
   return (
@@ -268,7 +279,14 @@ const Banner = () => {
 
       </Box>
       <Spacer/>
-      <Image borderRadius="4px" src={ImageData.image} alt={ImageData.alt}/> 
+      <CNextImage 
+        borderRadius="10px"
+        placeholder="blur" 
+        height={406} 
+        width={507} 
+        src={ImageData.image} 
+        alt={ImageData.alt}
+      /> 
     </Box>
   )
 }
@@ -346,10 +364,6 @@ const Menu = () => {
 
 const FooterMenu = () => {
   const infoData = {
-    imageData: {
-      image: "https://archv.id/static/media/logoHeader.e98c78fb.png",
-      alt: "aksara logo"
-    },
     description: "Menghasilkan karya, produk, dan jasa dalam bidang Teknologi Informasi seperti aplikasi mobile untuk berbagai macam platform (Android/iOS) dan Website."
   }
 
@@ -444,28 +458,32 @@ const FooterMenu = () => {
 const OurClient = () => {
   const swipeDatas  = [
     {
-      image: "/logo-telkom.bbdcc5c7.png",
+      image: logoTelkomImage,
       alt: "Telkom Indonesia", 
       linkTo: "",
-      resize: "50%" 
+      width: 150, 
+      height: 64
     },
     {
-      image: "/logo-bagidata.0fb72baa.png",
+      image: logoBagiDataImage,
       alt: "Bagidata",
       linkTo: "",
-      resize: "60%" 
+      width: 180, 
+      height: 40 
     },
     {
-      image: "/logo-mimin.3ae8cd81.png",
+      image: logoMiminImage,
       alt: "Mimin Chat",
       linkTo: "",
-      resize: "30%" 
+      width: 90, 
+      height: 73 
     },
     {
-      image: "/logo-stkip.a939117d.png",
+      image: logoSTKIPImage,
       alt: "STKIP Muhammadiyah Bogor",
       linkTo: "",
-      resize: "100%" 
+      width: 300, 
+      height: 75 
     },
   ]
 
@@ -502,7 +520,7 @@ const OurClient = () => {
             height: "100%",
           }} key={i}>
             <Center h="100%" w="100%">
-              <Image w={v.resize} src={v.image} alt={v.alt}/>
+              <CNextImage placeholder="blur" width={v.width} height={v.height} src={v.image} alt={v.alt}/>
             </Center>
           </SwiperSlide>
           ))}
