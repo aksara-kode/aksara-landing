@@ -114,7 +114,7 @@ const BenefitSection = () => {
   return (
     <Box as="section" w="100%">
       <Flex>
-        <Box>
+        <Box w={{base: "100%", md: "unset"}}>
           <Heading mb="64px" size="lg">{titleText}</Heading>  
           <Grid w="100%" templateColumns={{base: "repeat(1, 1fr)", xl: "repeat(2, 1fr)"}} gap={6} pr={{base: "0px", md: "24px"}}>
             {benetifDatas.map((v, i) => (
@@ -129,7 +129,9 @@ const BenefitSection = () => {
           </Grid>
         </Box>
         <Spacer d={{base: "none", md: "block"}}/>
-        <CNextImage d={{base: "none", md: "block"}} placehoder="blur" width={507} height={713} src={imageData.image} alt={imageData.alt} />
+        <Box d={{base: "none", md: "block"}}>
+          <CNextImage placehoder="blur" width={507} height={713} src={imageData.image} alt={imageData.alt} />
+        </Box>
       </Flex>
     </Box>
   )
