@@ -657,7 +657,7 @@ const TechStack = () => {
         {stackDatas.map((v,i) => (
           <Box justifySelf="center" borderRadius="5px" bg="white" w="90px" h="90px" key={i} d="flex" flexDirection="column" justifyContent="center" alignItems="center">
             <Box mb="2px">
-              <CNextImage src={v.image} alt={v.name} width={50} height={50} placehoder="blur"/>
+              <CNextImage src={v.image} alt={v.name} width={50} height={50} placeholder="blur"/>
             </Box>
             <Text fontSize="xs" textColor="gray.700">{v.name}</Text>
           </Box>
