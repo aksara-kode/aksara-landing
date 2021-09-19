@@ -7,6 +7,7 @@ import "swiper/css";
 import { LogoIcon, RocketIcon, ShieldIcon, SettingIcon, QualityIcon, CodeIcon, ChatIcon, BranchIcon, PreviousArrowIcon, NextArrowIcon } from "../icons/icons";
 import NextImage from "next/image"
 import { chakra } from "@chakra-ui/react"
+import Typewriter from 'typewriter-effect';
 
 import bannerImage from "../public/banner.94034895.png"
 import logoBagiDataImage from "../public/logo-bagidata.0fb72baa.png"
@@ -51,7 +52,7 @@ const FlowSection = () => {
       iconBgColor: "rgba(255,51,31,.3)",
       color: "#FF341E",
       title: "Pengembangan Aplikasi dan Website",
-      description: "Proses pembuatan aplikasi dan website oleh Tim Ahli Archv"
+      description: "Proses pembuatan aplikasi dan website oleh Tim Ahli Aksara"
     },
   ]
 
@@ -141,45 +142,45 @@ const CustomerReviewSection = () => {
   const titleText = "Pengalaman Bersama Kami"
   const reviewDatas = [
     {
-      avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
+      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
       jobTitle: "PT Telkom Indonesia",
-      review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
+      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
     },
     {
-      avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
+      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
       jobTitle: "PT Telkom Indonesia",
-      review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
+      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
     },
     {
-      avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
+      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
       jobTitle: "PT Telkom Indonesia",
-      review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
+      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
     },
     {
-      avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
+      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
       jobTitle: "PT Telkom Indonesia",
-      review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
+      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
     },
     {
-      avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
+      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
       jobTitle: "PT Telkom Indonesia",
-      review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
+      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
     },
     {
-      avatarImage: "https://archv.id/static/media/syahrul.3b0eb5b0.png",
+      avatarImage: "https://Aksara.id/static/media/syahrul.3b0eb5b0.png",
       name: "Syahrul Rasyid",
       jobTitle: "PT Telkom Indonesia",
-      review: "Archv sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
+      review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
     },
   ]
@@ -255,7 +256,7 @@ const ContactUsSection = () => {
 
 const Banner = () => {
   const titleText = "Buat Ide Jadi Nyata, Bisa Dimulai Sekarang."
-  const descriptionText = "Archv Adalah Partner Pembuatan Aplikasi Dan Website Yang Memahami Keinginanmu. Ceritakan Ide Yang Kamu Simpan, Biar Kami Yang Wujudkan."
+  const descriptionText = "Aksara Adalah Partner Pembuatan Aplikasi Dan Website Yang Memahami Keinginanmu. Ceritakan Ide Yang Kamu Simpan, Biar Kami Yang Wujudkan."
 
   const ctaStartText = "Mulai"
   const seeMoreText = "Lihat kreasi kami"
@@ -267,8 +268,20 @@ const Banner = () => {
   return (
     <Box alignItems="center" d={["block", "block", "flex", "flex"]} pt="48px" pb="96px">
       <Box maxW="600px" textColor="white" mb="24px">
-        <Heading mb="12px">{titleText}</Heading>
+        <Heading mb="12px">
+          <Typewriter
+            options={{
+              strings: ['< Hello World! />', titleText],
+              delay: 20,
+              deleteSpeed: 5,
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </Heading>
+
         <Text mb="24px" textColor="#c7d2ff">{descriptionText}</Text>
+        
 
         <Flex alignItems="center">
           <Button w="150px" mr="24px" bg="#506eff" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{ctaStartText}</Button>
@@ -404,7 +417,7 @@ const FooterMenu = () => {
   const contactUsText = "Contact Us"
   const contactMenusDatas = [
     {
-      title: "archvcreative@gmail.com",
+      title: "aksarakodeteknologi@gmail.com",
       linkTo: ""
     },
     {
