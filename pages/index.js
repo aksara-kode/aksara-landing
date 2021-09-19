@@ -268,7 +268,7 @@ const Banner = () => {
   return (
     <Box alignItems="center" d={["block", "block", "flex", "flex"]} pt="48px" pb="96px">
       <Box maxW="600px" textColor="white" mb="24px">
-        <Heading mb="12px">
+        <Heading mb="12px" h="100px">
           <Typewriter
             options={{
               strings: ['< Hello World! />', titleText],
