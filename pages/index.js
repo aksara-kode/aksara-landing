@@ -1,15 +1,14 @@
 import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
 import { ChevronRightIcon, ChevronLeftIcon, StarIcon } from "@chakra-ui/icons";
-import { Box, Container, Flex, Heading, HStack, Link, List, ListItem, Spacer, Text, Grid, Center, Stack, SimpleGrid} from "@chakra-ui/layout";
+import { Box, Container, Flex, Heading, HStack, Link, List, ListItem, Spacer, Text, Grid, Center, SimpleGrid} from "@chakra-ui/layout";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { LogoIcon, RocketIcon, ShieldIcon, SettingIcon, QualityIcon, CodeIcon, ChatIcon, BranchIcon, PreviousArrowIcon, NextArrowIcon } from "../icons/icons";
 import NextImage from "next/image"
 import { chakra } from "@chakra-ui/react"
 import Typewriter from 'typewriter-effect';
-
-import avatarSyahrulImage from "../public/syahrul.3b0eb5b0.png"
+import { scroller } from "react-scroll"
 
 import bannerImage from "../public/banner.94034895.png"
 import logoBagiDataImage from "../public/logo-bagidata.0fb72baa.png"
@@ -49,6 +48,16 @@ const CNextImage = chakra(NextImage, {
   shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt', 'placeholder'].includes(prop),
 })
 
+const scrollToElement = (elementName) => {
+  scroller.scrollTo(elementName, {
+    duration: 800,
+    delay: 0,
+    smooth: 'easeInOutQuart'
+  })
+}
+
+const contactWALink = "https://api.whatsapp.com/send/?phone=6282214899172&text=Hello+Aksara%2C+I%27m+%5Byour-name-here%5D+from+%5Byour-company%2Fstartup-name%5D+is+looking+for+%5Bwebsite%2Fmobile+apps%5D+Developer.&app_absent=0"
+
 // install Swiper modules
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -81,7 +90,9 @@ const FlowSection = () => {
   return (
     <Box as="section" w="100%" pb="24px">
       <Box>
-        <Heading mb="64px" textAlign="center" size="lg">{titleText}</Heading>
+        {/* <Element name="element-flow" className="element"> */}
+          <Heading mb="64px" textAlign="center" size="lg">{titleText}</Heading>
+        {/* </Element> */}
         <Box d={{base: "block", md:"flex"}} justifyContent="space-between" >
           {flowDatas.map((v, i) => (
             <Box key={i} maxW={{base: "100%", md: "300px"}} mb={{base: "32px", md: "0px"}} d="flex" flexDirection="column" alignItems="center">
@@ -169,7 +180,7 @@ const CustomerReviewSection = () => {
       jobTitle: "PT Telkom Indonesia",
       review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
       star: 3
-    },
+    }
   ]
   return (
     <Box as="section" w="100%">
@@ -235,7 +246,9 @@ const ContactUsSection = () => {
       <Box d={{base: "block", md: "flex"}} bgGradient="linear(#4A67DB, #334DCF)" p="20px" textColor="white" alignItems="center" borderRadius="10px">
         <Heading textAlign={{base: "center", md: "left"}} mb={{base: "12px", md: "0px"}} size="md">{titleText}</Heading>
         <Spacer/> 
-        <Button w={{base: "100%", md: "150px"}} mr="24px" bg="#506eff" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{buttonText}</Button> 
+        <Link href={contactWALink} target="_blank" _hover={{textDecoration: "none"}}>
+          <Button w={{base: "100%", md: "150px"}} mr="24px" bg="#506eff" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{buttonText}</Button> 
+        </Link>
       </Box>
     </Box>
   )
@@ -268,15 +281,15 @@ const Banner = () => {
         </Heading>
 
         <Text mb="24px" textColor="#c7d2ff">{descriptionText}</Text>
-        
 
         <Flex alignItems="center">
-          <Button w="150px" mr="24px" bg="#506eff" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{ctaStartText}</Button>
+          <Button onClick={() => scrollToElement("element-flow")} w="150px" mr="24px" bg="#506eff" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{ctaStartText}</Button>
 
-          <Flex alignItems="center">
+          {/* TODO */}
+          {/* <Flex alignItems="center">
             <Link mr="4px" fontSize="sm" fontWeight="bold"  textColor="white">{seeMoreText}</Link>
             <ChevronRightIcon textColor="white" />
-          </Flex>
+          </Flex> */}
         </Flex>
 
       </Box>
@@ -296,28 +309,24 @@ const Banner = () => {
 const Menu = () => {
   const menuDatas = [
     {
-      title: "Home",
-      linkTo: ""
+      title: "Flow",
+      linkTo: "",
+      elementTo: "element-flow"
     },
     {
-      title: "Product",
-      linkTo: ""
-    },
-    {
-      title: "Layanan",
-      linkTo: ""
+      title: "Benefit",
+      linkTo: "",
+      elementTo: "element-benefit"
     },
     {
       title: "Ulasan",
-      linkTo: ""
+      linkTo: "",
+      elementTo: "element-customer-review"
     },
     {
-      title: "Blog",
-      linkTo: ""
-    },
-    {
-      title: "Karir",
-      linkTo: ""
+      title: "Tech Stack",
+      linkTo: "",
+      elementTo: "element-tech-stack"
     },
   ]
   const ctaContactUsText = "Hubungi Kami"
@@ -334,7 +343,7 @@ const Menu = () => {
         <HStack spacing={4}>
           {menuDatas.map((v, i) => (
             <ListItem key={i}>
-              <Link fontWeight="medium" _hover={{
+              <Link onClick={() => scrollToElement(v.elementTo)} fontWeight="medium" _hover={{
                 textDecoration: "none",
                 pb: "6px",
                 borderBottom: "2px",
@@ -352,7 +361,7 @@ const Menu = () => {
 
       <Flex alignItems="center">
         <Box h="1px" bg="#c7d2ff" w="100px" mr="12px" />
-        <Link mr="4px" fontSize="sm" fontStyle="italic" fontWeight="bold"  textColor="white">{ctaContactUsText}</Link>
+          <Link onClick={() => scrollToElement("element-contact-us")} mr="4px" fontSize="sm" fontStyle="italic" fontWeight="bold"  textColor="white">{ctaContactUsText}</Link>
         <ChevronRightIcon textColor="white" />
       </Flex>
 
@@ -408,7 +417,7 @@ const FooterMenu = () => {
       linkTo: ""
     },
     {
-      title: "0859126486414",
+      title: "+62 822-1489-9172",
       linkTo: ""
     },
   ]
@@ -421,7 +430,8 @@ const FooterMenu = () => {
         </Link>
         <Text textColor="#c7d2ff">{infoData.description}</Text>
       </Box>
-      <Box>
+      {/* TODO */}
+      {/* <Box>
         <Heading as="h4" mb="8px" size="sm">{supportText}</Heading>
         <List>
           {supportMenusDatas.map((v, i) => (
@@ -440,7 +450,7 @@ const FooterMenu = () => {
             </ListItem>
           ))}
         </List>
-      </Box>
+      </Box> */}
       <Box>
         <Heading as="h4" mb="8px" size="sm">{contactUsText}</Heading>
         <List>
@@ -450,7 +460,7 @@ const FooterMenu = () => {
             </ListItem>
           ))}
         </List>
-        <p>facebook dll</p>
+        {/* TODO social media */}
       </Box>
       
     </Grid> 
@@ -653,31 +663,31 @@ export default function Home() {
           </Container>
         </Box>
 
-        <Box w="100%" py="48px">
+        <Box name="element-flow" w="100%" py="48px">
           <Container maxW="container.xl">
             <FlowSection/>  
           </Container>
         </Box>
 
-        <Box w="100%" bg="#F9F9FA" py="48px">
+        <Box name="element-benefit" w="100%" bg="#F9F9FA" py="48px">
           <Container maxW="container.xl">
             <BenefitSection/>
           </Container>
         </Box>
 
-        <Box w="100%" py="48px">
+        <Box name="element-customer-review" w="100%" py="48px">
           <Container maxW="container.xl">
             <CustomerReviewSection/>
           </Container>
         </Box>
 
-        <Box w="100%" py="48px">
+        <Box name="element-contact-us" w="100%" py="48px">
           <Container maxW="container.xl">
             <ContactUsSection/>
           </Container>
         </Box>
 
-        <Box w="100%" py="48px" bg="#F9F9FA">
+        <Box name="element-tech-stack" w="100%" py="48px" bg="#F9F9FA">
           <Container maxW="container.xl">
             <TechStack/>
           </Container>
