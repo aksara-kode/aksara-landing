@@ -256,7 +256,7 @@ const ContactUsSection = () => {
 
 const Banner = () => {
   const titleText = "Buat Ide Jadi Nyata, Bisa Dimulai Sekarang."
-  const descriptionText = "Aksara Adalah Partner Pembuatan Aplikasi Dan Website Yang Memahami Keinginanmu. Ceritakan Ide Yang Kamu Simpan, Biar Kami Yang Wujudkan."
+  const descriptionText = "Aksara adalah partner pembuatan aplikasi dan website yang memahami keinginanmu. Ceritakan ide yang kamu simpan, biar kami yang wujudkan."
 
   const ctaStartText = "Mulai"
   const seeMoreText = "Lihat kreasi kami"
