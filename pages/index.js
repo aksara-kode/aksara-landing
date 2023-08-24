@@ -15,6 +15,9 @@ import logoBagiDataImage from "../public/logo-bagidata.0fb72baa.png"
 import logoMiminImage from "../public/logo-mimin.3ae8cd81.png"
 import logoSTKIPImage from "../public/logo-stkip.a939117d.png"
 import logoTelkomImage from "../public/logo-telkom.bbdcc5c7.png"
+import logoAterkiaImage from "../public/aterkia.png"
+import logoFgteamImage from "../public/fgteam.png"
+import logoGofleetImage from "../public/gofleet.png"
 import wywgImage from "../public/what-you-will-get.d3c6061f.png"
 
 import stackNodeImage from "../public/tech-stacks/nodejs.png"
@@ -179,7 +182,7 @@ const CustomerReviewSection = () => {
       name: "Syahrul Rasyid",
       jobTitle: "PT Telkom Indonesia",
       review: "Aksara sangat membantu di era digital saat ini khususnya di Indonesia masih kurang dengan Talent-talent digital.",
-      star: 3
+      star: 5
     }
   ]
   return (
@@ -477,6 +480,13 @@ const OurClient = () => {
       height: 64
     },
     {
+      image: logoGofleetImage,
+      alt: "GoFleet",
+      linkTo: "",
+      width: 180, 
+      height: 50 
+    },
+    {
       image: logoBagiDataImage,
       alt: "Bagidata",
       linkTo: "",
@@ -497,6 +507,20 @@ const OurClient = () => {
       width: 300, 
       height: 75 
     },
+    {
+      image: logoFgteamImage,
+      alt: "FG Team",
+      linkTo: "",
+      width: 75, 
+      height: 75 
+    },
+    {
+      image: logoAterkiaImage,
+      alt: "Aterkia",
+      linkTo: "",
+      width: 180, 
+      height: 50 
+    }
   ]
 
   return (
