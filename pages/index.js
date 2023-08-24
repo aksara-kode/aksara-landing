@@ -331,6 +331,11 @@ const Menu = () => {
       linkTo: "",
       elementTo: "element-tech-stack"
     },
+    {
+      title: "Blog",
+      linkTo: "https://aksarakode.co.id/blog/",
+      elementTo: ""
+    },
   ]
   const ctaContactUsText = "Hubungi Kami"
   return (
@@ -346,7 +351,7 @@ const Menu = () => {
         <HStack spacing={4}>
           {menuDatas.map((v, i) => (
             <ListItem key={i}>
-              <Link onClick={() => scrollToElement(v.elementTo)} fontWeight="medium" _hover={{
+              <Link onClick={() => v.elementTo ? scrollToElement(v.elementTo) : window.open(v.linkTo, "_blank")} fontWeight="medium" _hover={{
                 textDecoration: "none",
                 pb: "6px",
                 borderBottom: "2px",
