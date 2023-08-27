@@ -246,11 +246,11 @@ const ContactUsSection = () => {
   const buttonText = "Hubungi Kami"
   return (
     <Box as="section" width="100%">
-      <Box d={{base: "block", md: "flex"}} bgGradient="linear(#4A67DB, #334DCF)" p="20px" textColor="white" alignItems="center" borderRadius="10px">
+      <Box d={{base: "block", md: "flex"}} bgGradient="linear(#000000, #000b43)" p="20px" textColor="white" alignItems="center" borderRadius="10px">
         <Heading textAlign={{base: "center", md: "left"}} mb={{base: "12px", md: "0px"}} size="md">{titleText}</Heading>
         <Spacer/> 
         <Link href={contactWALink} target="_blank" _hover={{textDecoration: "none"}}>
-          <Button w={{base: "100%", md: "150px"}} mr="24px" bg="#506eff" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{buttonText}</Button> 
+          <Button w={{base: "100%", md: "150px"}} mr="24px" bg="#092bcf" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{buttonText}</Button> 
         </Link>
       </Box>
     </Box>
@@ -283,10 +283,10 @@ const Banner = () => {
           />
         </Heading>
 
-        <Text mb="24px" textColor="#c7d2ff">{descriptionText}</Text>
+        <Text mb="24px" textColor="#becafa">{descriptionText}</Text>
 
         <Flex alignItems="center">
-          <Button onClick={() => scrollToElement("element-flow")} w="150px" mr="24px" bg="#506eff" _hover={{boxShadow: "xl"}} _active={{bg: "#334DCF"}}>{ctaStartText}</Button>
+          <Button onClick={() => scrollToElement("element-flow")} w="150px" mr="24px" bg="#092bcf" _hover={{boxShadow: "xl"}} _active={{bg: "#071f94"}}>{ctaStartText}</Button>
 
           {/* TODO */}
           {/* <Flex alignItems="center">
@@ -677,7 +677,7 @@ export default function Home() {
   return (
     <>
       {/* head */}
-      <Box bgGradient="linear(#4A67DB, #334DCF)">
+      <Box bgGradient="linear(#000000, #000b43)">
         <Container maxW="container.xl" >
           <Menu/> 
           <Banner/> 
@@ -724,7 +724,7 @@ export default function Home() {
       </Box>
 
       {/* footer */}
-      <Box py="30px" bg="#334DCF">
+      <Box py="30px" bg="#000b43">
         <Container maxW="container.xl">
           <FooterMenu/>  
         </Container>
